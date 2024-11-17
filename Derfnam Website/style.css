@@ -1,0 +1,809 @@
+* {
+    box-sizing: border-box;
+  }
+  
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background-color: black;
+    color: white;
+    transition: background-color 0.5s, color 0.5s;
+  }
+
+  body.light {
+    background-color: rgb(202, 200, 200);
+    color: black;
+  }
+  
+  body.dark {
+    background-color: black;
+    color: #f0f0f0;
+  }
+
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: black;
+    border: 1px solid white;
+  }
+  
+  input:focus + .slider {
+    background-color: black;
+    border: 1px solid white;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(27px);
+    -ms-transform: translateX(27px);
+    transform: translateX(27px);
+  }
+  
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  .dropdown-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: gold;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+  }
+
+.dropdown-container {
+  display: none;
+  background-color: rgb(2, 2, 61);
+  padding-left: 8px;
+}
+
+.dropdown-container a{
+  cursor: pointer;
+}
+
+#nav_button{
+  cursor:pointer;
+      position:relative;
+  }
+
+
+
+  .content {
+    padding: 16px;
+  }
+  
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+  .sticky + .content {
+    padding-top: 102px;
+  }
+  
+
+  .header {
+    padding: 10px;
+    text-align: center;
+    color: #fff;    
+    background-image: url(images/wp2691486.webp);
+    background-size: cover;
+    background-position: center;
+
+  }
+
+  .header img{
+    width: 15%;
+    opacity: 0.3;
+    animation-name: show-logo;
+    animation-iteration-count: infinite;
+    animation-duration: 8s;
+  }
+
+  @keyframes show-logo {
+    50%{
+      opacity: 1;
+    }    
+  }
+
+  .header h1 {
+    font-size: 60px;
+    font-family: 'HK MODULAR';
+    word-spacing: 30px;
+    transition: 1s;
+    animation-name: derfnam-change;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    color: transparent;
+  }
+
+  @keyframes derfnam-change{
+    25%{
+      color: rgb(247, 210, 1);
+
+    }
+    50%{
+      color: rgb(255, 115, 0);
+    }
+    75%{
+      color: rgb(0, 255, 0);
+    }
+    100%{
+      color: rgb(255, 0, 0);
+    }
+  }
+
+  .header h1:hover {
+    word-spacing: 500px;
+  }
+  
+  .navbar {
+    overflow: hidden;
+    transition: 0.5s;
+    border: 3px solid rgb(2, 2, 61);
+  }
+
+  .navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    cursor:pointer;
+    position:relative;
+    padding:8px 10px;
+    background:rgb(2, 2, 61);
+    font-size:20px;
+    margin: 2.3px;
+    border-top-right-radius:10px;
+    border-bottom-left-radius:10px;
+    transition:all 0.5s;
+    &:after,&:before{
+        content:" ";
+            width:10px;
+            height:10px;
+            position:absolute;
+            border :0px solid #fff;
+            transition:all 1s;
+            }
+        &:after{
+            top:-1px;
+            left:-1px;
+            border-top:5px solid black;
+            border-left:5px solid black;
+        }
+        &:before{
+            bottom:-1px;
+            right:-1px;
+            border-bottom:5px solid black;
+            border-right:5px solid black;
+        }
+        &:hover{
+            border-top-right-radius:0px;
+        border-bottom-left-radius:0px;
+            background:rgba(0,0,0,.5);
+            color:white;
+            &:before,&:after{
+                
+                width:100%;
+                height:100%;
+                 border-color:white;
+            }
+        }
+    
+  }
+  
+
+  .navbar #right {
+    float: right;
+  }
+  
+  .navbar a:hover {
+    background-color: black;
+    color: white;
+  }
+  
+  .row {  
+    display: -ms-flexbox; 
+    display: flex;
+    -ms-flex-wrap: wrap; 
+    flex-wrap: wrap;
+  }
+  
+  .side {
+    -ms-flex: 30%; 
+    flex: 30%;
+    background-color: inherit;
+    color: inherit;
+  }
+
+  .main {   
+    -ms-flex: 70%; 
+    flex: 70%;
+    background-size: cover;
+    color: inherit;
+    background-color: inherit;
+  }
+  
+  .threats {
+    background: transparent;
+    width: 100%;
+    padding: 20px;
+    height:fit-content;
+  }
+  .threats p{
+    background-image: url(images/blue-light-rays-background_1017-3394.webp);
+    background-size: cover;
+    background-position: center;
+    font-family: 'Bakbak One';
+    text-align: left;
+    letter-spacing: 2px;  
+    font-size: 26px; 
+    border: 8px dashed white; 
+    padding: 12px; 
+    border-radius: 25px;
+    transition: 2s;
+    font-style: bold;
+    color: white;
+  }
+
+  #about{
+    scroll-behavior: smooth;
+  }
+
+  .about_us {
+    font-family: 'MV Boli';
+    text-align: center;
+    font-size: 22px;
+    background-image: url(images/logo.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 100%;
+    padding: 20px;
+    color: white;
+    animation-name: logo_transform;
+    animation-iteration-count: infinite;
+    animation-duration: 12s;
+  }
+
+  @keyframes logo_transform {
+    30%{
+      background-image: url(images/Black\ Gold\ Vintage\ Luxury\ Jewelry\ Logo_20241108_112723_0000.png);
+      background-position: center;
+    }
+    60%{
+      background-image: url(images/Derfnam_20241111_202749_0000.png);
+      background-position: center;
+    }
+  }
+  
+  .side .about{
+    font-family: 'Bakbak One';
+    font-size: 22px; 
+    padding: 12px; 
+    border-radius: 25px;
+    transition: 2s;
+    color: inherit;
+    border: 10px dotted grey;
+  }
+
+  .side .about:hover{
+    background-color: rgb(32, 32, 216);
+    border: 10px dotted white;
+    
+  }
+
+  .display_img1 {
+    background-image: url(images/Cyber-Security-Icon-Concept-2-1-1024x632.jpeg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .display_img1 p{
+    margin-top: -12px;
+  }
+
+  .display_img2 {
+    background-image: url(images/hacker-working-darkness_53876-94580.webp);
+    background-size: cover;
+    background-position: center;
+
+  }
+
+  .display_img2 p{
+    margin-top: -12px;
+  }
+
+  .display_img3 {
+    background-image: url(images/smartphone-with-security-lock-icon-digital-background-representing-cybersecurity-protection_670147-111621.webp);
+    background-size: cover;
+
+  }
+
+  .display_img3 p{
+    margin-top: -15px;
+  }
+
+  .display_img1, .display_img2, .display_img3{
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Fixedsys';
+    width: 100%;
+    padding: 20px;
+    
+  }
+
+  .display{
+    width: 90%;
+    background-color:transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    perspective: 1000px;
+    font-size: 22px;
+    font-style: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+  }
+  
+  .flip-box {
+    background-color: transparent;
+    width: 90%;
+    height: 350px;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px;
+    transition: top 0.3s;
+    z-index: -1;
+  }
+  
+  .flip-box-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  .flip-box:hover .flip-box-inner {
+    transform: rotateX(180deg);
+  }
+  
+  .flip-box-front, .flip-box-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  .flip-box-front {
+    background-image: url(images/what-is-cyber-security.jpg);
+    background-size: cover;
+    background-position: center;  
+    color: white;
+  }
+  
+  .flip-box-back {
+    background-image: url(images/cyber-security-background.webp);
+    background-position: center;
+    color: white;
+    background-size: cover;
+    transform: rotateX(180deg);
+  }
+
+  .box {
+    background-color: transparent;
+    width: 90%;
+    height: 350px;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px;
+    z-index: -1;
+  }
+
+  .box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.box:hover .box-inner {
+  transform: rotateY(180deg);
+}
+
+.box-front, .box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.box-front {
+  background-image: url(images/BlackHat-Hacker.jpg);
+  background-size: cover;
+  color: white;
+}
+
+.box-back {
+  background-image: url(images/hacker-silhouette-hack-anonymous.webp);
+  background-size: cover;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  outline: 2px solid;
+}
+
+#card{
+    scroll-behavior: smooth;
+
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+.card button {
+  border: 0.1px solid ;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: inherit;
+  background-color: inherit;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  height: fit-content;
+}
+
+.card a {
+  text-decoration: none;
+  font-size: 22px;
+  color: white;
+}
+
+.card button:hover, a:hover {
+  opacity: 0.7;
+}
+
+
+
+#myBtn{
+  cursor: pointer;
+}
+
+form{
+  color: white;
+  background-color: black;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+
+form button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+form button:hover {
+  opacity: 0.8;
+}
+
+#message {
+  display:none;
+  background: inherit;
+  color: inherit;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+#message p {
+  padding: 10px 35px;
+  font-size: 18px;
+}
+
+
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "✔";
+}
+
+
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "✖";
+}
+
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 30%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 10; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+  padding-top: 10px;
+  opacity: 1;
+}
+
+
+.modal-content {
+  margin: 5% auto 15% auto; 
+  border: 1px solid #888;
+  width: 85%; 
+  border-radius: 20px;
+}
+
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: inhe;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+
+.cancelbtn2 {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer2 {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar2 {
+  width: 30%;
+  border-radius: 50%;
+}
+
+.container2 {
+  padding: 16px;
+}
+
+span.psw2 {
+  float: right;
+  padding-top: 16px;
+}
+
+
+.modal2 {
+  display: none; 
+  position: fixed; 
+  z-index: 10; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+  padding-top: 10px;
+  opacity: 1;
+}
+
+.modal-content2 {
+  margin: 5% auto 15% auto; 
+  border: 1px solid #888;
+  width: 85%; 
+  border-radius: 20px;
+}
+
+
+.close2 {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: inhe;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close2:hover,
+.close2:focus {
+  color: red;
+  cursor: pointer;
+}
+
+
+.animate2 {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+
+.footer {
+  padding: 1em;
+  text-align: center;
+  background: #222;
+  color: #fff;
+}
+
+.con {
+  width: 100%;
+  background-color: #ddd;
+}
+
+.skills {
+  text-align: right;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+}
+
+.a {width: 90%; background-color: #04AA6D;}
+.b {width: 65%; background-color: #2196F3;}
+.c {width: 76%; background-color: #060499;}
+.d {width: 52%; background-color: #808080;}
+.e {width: 12%; background-color: #f50606;}
+
+
+.input-container {
+  display: -ms-flexbox; 
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
