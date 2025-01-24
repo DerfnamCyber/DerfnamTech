@@ -295,6 +295,13 @@
     color: white
   }
 
+  .threat_landscape_head{
+    text-align: center; 
+    font-family:cursive; 
+    letter-spacing: 2px; 
+    word-spacing: 3px;
+  }
+
   #about{
     scroll-behavior: smooth;
   }
